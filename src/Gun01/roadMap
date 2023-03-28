@@ -1,0 +1,32 @@
+Java bitirdik
+Selenium u bitirdik
+
+testler -> genel durumu test ediyorum
+           smoke
+
+        -> tüm sistemi test ediyorum
+
+        -> sadece ilgili bölümü test
+
+testlerin gruplanması gerekiyor
+bazı testler pass geçilecek
+paralel test , cross browser
+testlerin bağımlı çalışması
+testlerin sıralı calısması
+testleri istediğimiz gibi organize edilmesi gerekiyor
+organize eden tool lar var
+
+Web Testing
+testNG       8 gün - basit rapor
+Cucumber    12 gün - 3 çeşit çok güzel rapor olacak
+Apache-POI   3 gün Excel işlemleri
+
+DB Testing
+MySQL        8 gün
+JDBC         3 gün
+
+API testing
+POSTMAN      4 gün
+RestAssured  6 gün
+
+Jenkins      3-4 gün

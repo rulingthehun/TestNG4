@@ -14,7 +14,6 @@ public class BaseDriverChrome {
     public static WebDriver driver;
 
     static{
-        OncekileriKapat();
         Logger logger = Logger.getLogger("");
         logger.setLevel(Level.SEVERE);
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY,"true");
@@ -36,16 +35,8 @@ public class BaseDriverChrome {
     }
 
     public static void driverStop(){
+        System.out.println("Stopping process is started");
         MyFunc.Wait(3);
         driver.quit();
-    }
-
-    public static void OncekileriKapat() {
-
-        try {
-            Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
-        } catch (Exception ignored) {
-
-        }
     }
 }
