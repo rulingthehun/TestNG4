@@ -3,10 +3,14 @@ package Gun01;
 import Utility.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class _06_SubscribeNewsLetter extends BaseDriverFirefox {
+import java.time.Duration;
+
+public class _06_SubscribeNewsLetter extends BaseDriverChrome {
       /*
         Senaryo
         1- Siteyi açınız.
@@ -24,6 +28,8 @@ public class _06_SubscribeNewsLetter extends BaseDriverFirefox {
         driver.findElement(link).click();
         driver.findElement(yes).click();
         driver.findElement(cnt).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[class*='success']")));
         Tools.successMessageValidation();
     }
 
