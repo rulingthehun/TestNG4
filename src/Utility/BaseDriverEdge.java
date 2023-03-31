@@ -1,10 +1,13 @@
 package Utility;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeDriverService;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -27,7 +30,7 @@ public class BaseDriverEdge {
         System.setProperty("webdriver.edge.driver", "drivers/msedgedriver");
         System.setProperty(EdgeDriverService.EDGE_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
         System.setProperty("webdriver.edge.verboseLogging", "true");
-        EdgeDriverService service = EdgeDriverService.createDefaultService();
+        //EdgeDriverService service = EdgeDriverService.createDefaultService();
         EdgeOptions options = new EdgeOptions();
         //options.addArguments("headless");
         driver = new EdgeDriver(options);
@@ -43,9 +46,27 @@ public class BaseDriverEdge {
         driver.manage().timeouts().implicitlyWait(dr); //Bütün web elementlerin element bazında
         // elemente özel işlem yapılmadan önce hazır hale gelmesi için verilen mühlet (süre).
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        LoginTest();
     }
 
-    @AfterClass
+    void LoginTest(){
+        driver.get("https://opencart.abstracta.us/index.php?route=account/login");
+        System.out.println("Login test started");
+
+        WebElement email = driver.findElement(By.id("input-email"));
+        email.sendKeys("burakgaznepoglu_1999@hotmail.com");
+
+        WebElement password = driver.findElement(By.id("input-password"));
+        password.sendKeys("19Burak99.");
+
+        driver.findElement(By.cssSelector("input[type='submit']")).click();
+
+        Assert.assertEquals(driver.getTitle(), "My Account", "Login fail");
+
+    }
+
+    @AfterClass(enabled = true)
     public void stoppingProcess() {
         System.out.println("Stopping process is started");
         Tools.Wait(1.5);
