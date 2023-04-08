@@ -19,7 +19,7 @@ public class _02_ValidateMenu extends BaseDriverChrome {
 
     By homePage = By.linkText("Your Store");
     By navBar = By.cssSelector("ul[class='nav navbar-nav']>*");
-    @Test
+    @Test(groups = "SmokeTest")
     void menuValidation(){
         WebElement homePageTxt = driver.findElement(homePage);
         homePageTxt.click();

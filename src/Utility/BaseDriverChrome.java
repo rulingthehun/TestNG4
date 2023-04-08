@@ -18,7 +18,7 @@ public class BaseDriverChrome {
 
     public static WebDriver driver;
 
-    @BeforeClass
+    @BeforeClass(groups = "SmokeTest")
     public void startingProcess() {
         System.out.println("Starting process is started");
         Logger logger = Logger.getLogger("");
@@ -59,7 +59,7 @@ public class BaseDriverChrome {
 
     }
 
-    @AfterClass(enabled = true)
+    @AfterClass(enabled = true, groups = "SmokeTest")
     public void stoppingProcess() {
         System.out.println("Stopping process is started");
         Tools.Wait(1.5);
