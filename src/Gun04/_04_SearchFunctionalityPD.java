@@ -40,12 +40,15 @@ public class _04_SearchFunctionalityPD extends BaseDriverParameter {
         //robot.keyRelease(KeyEvent.VK_ENTER);
 
         //1. Yöntem
-        //List<WebElement> results = driver.findElements(By.xpath("//div[@class='caption']//h4//a"));
-        //List<WebElement> macResults = driver.findElements(By.xpath("//div[@class='caption']//h4//a[contains(text(),Mac)]"));
+        //List<WebElement> results = driver.findElements
+        // (By.xpath("//div[@class='caption']//h4//a"));
+        //List<WebElement> macResults = driver.findElements
+        // (By.xpath("//div[@class='caption']//h4//a[contains(text(),Mac)]"));
         //Assert.assertEquals(results, macResults);
 
         //2. Yöntem
-        List<WebElement> captions = driver.findElements(By.xpath("//div[@class='caption']//h4"));
+        List<WebElement> captions = driver.findElements
+                (By.xpath("//div[@class='caption']//h4"));
         for (WebElement e : captions)
             Assert.assertTrue(e.getText().toLowerCase().contains(wordToSearch));
     }

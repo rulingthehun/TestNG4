@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -17,6 +18,8 @@ import java.util.logging.Logger;
 public class BaseDriverChrome {
 
     public static WebDriver driver;
+    public static WebDriverWait wait;
+
 
     @BeforeClass(groups = "SmokeTest")
     public void startingProcess() {
@@ -39,7 +42,7 @@ public class BaseDriverChrome {
         //// Eğer 2 sn yüklenirse 20 sn beklemez.
         driver.manage().timeouts().implicitlyWait(dr); //Bütün web elementlerin element bazında
         // elemente özel işlem yapılmadan önce hazır hale gelmesi için verilen mühlet (süre).
-
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         LoginTest();
     }
 

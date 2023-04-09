@@ -6,9 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeDriverService;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -20,7 +24,8 @@ import java.util.logging.Logger;
 
 public class BaseDriverParameter {
 
-    public static WebDriver driver;
+    public WebDriver driver;
+    public static WebDriverWait wait;
 
     @BeforeClass
     @Parameters("browser")
@@ -43,6 +48,14 @@ public class BaseDriverParameter {
             desiredCapabilities.setAcceptInsecureCerts(true);
             //options.setHeadless(true);
             driver = new FirefoxDriver(options);
+        } else if (browser.equalsIgnoreCase("edge")) {
+            System.setProperty("webdriver.edge.driver", "drivers/msedgedriver");
+            System.setProperty(EdgeDriverService.EDGE_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+            System.setProperty("webdriver.edge.verboseLogging", "true");
+            //EdgeDriverService service = EdgeDriverService.createDefaultService();
+            EdgeOptions options = new EdgeOptions();
+            //options.addArguments("headless");
+            driver = new EdgeDriver(options);
         }
 
         driver.manage().window().maximize();
@@ -51,7 +64,7 @@ public class BaseDriverParameter {
         driver.manage().timeouts().pageLoadTimeout(dr);
         driver.manage().timeouts().implicitlyWait(dr);
 
-
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         LoginTest();
     }
 

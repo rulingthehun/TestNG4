@@ -1,8 +1,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suit">
+<suite name="Suit" parallel="tests" thread-count="6">
 
     <test name="test1">
         <parameter name="search" value="mac"/>
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="Gun04._04_SearchFunctionalityPD"/>
+        </classes>
+    </test>
+
+    <test name="test4">
+        <parameter name="search" value="samsung"/>
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="Gun04._04_SearchFunctionalityPD"/>
@@ -20,6 +28,22 @@
     <test name="test3">
         <parameter name="search" value="mac"/>
         <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="Gun04._04_SearchFunctionalityPD"/>
+        </classes>
+    </test>
+
+    <test name="test5">
+        <parameter name="search" value="mac"/>
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="Gun04._04_SearchFunctionalityPD"/>
+        </classes>
+    </test>
+
+    <test name="test6">
+        <parameter name="search" value="samsung"/>
+        <parameter name="browser" value="edge"/>
         <classes>
             <class name="Gun04._04_SearchFunctionalityPD"/>
         </classes>
