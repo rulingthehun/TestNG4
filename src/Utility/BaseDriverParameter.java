@@ -60,7 +60,7 @@ public class BaseDriverParameter {
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        Duration dr = Duration.ofSeconds(3);
+        Duration dr = Duration.ofSeconds(10);
         driver.manage().timeouts().pageLoadTimeout(dr);
         driver.manage().timeouts().implicitlyWait(dr);
 

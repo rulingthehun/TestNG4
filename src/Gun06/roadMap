@@ -1,0 +1,21 @@
+Yol Haritamız
+1- Java Core - program dili
+2- Github    - kodların yönetimi
+
+WEB Testing
+3- Selenium  - test tool, web driver
+4- TestNG(WEB)- Testlerimizi organi etti
+5- Cucumber (Web Testing) 10-12 gün
+
+6- ApachePOI - Excel İşlemleri 3 gün
+
+DB Testing
+7- MySQL - DB yönetiminin Tool 8-9 gün - Sql db komut
+8- JDBC - DB Testing Tool u 3 gün
+
+API Testing
+9- POSTMAN API yönetim tool - 4 gün
+10- RestAssured API test Tool - 6 gün
+
+Testlerin zamanlı çalıştırılması
+11- Jenkins 2-3 gün
